@@ -34,18 +34,20 @@ void test1() {
     kd.insert(vec2, 2);
     kd.insert(vec3, 3);
 
+
     typedef KDTree<vector<int>, int>::iterator kditer;
     vector<int> p{2,2};
     pair<bool, kditer> res = kd.find(p);
-    if(res.first) {
-        cout << "value: " << res.second->second << endl;
-    }
+    assert(!res.first);
 
+    int ans[2][2] = {{25, 3}, {1, 1}}, cnt = 0;
     kd.erase(vec2);
     vector<pair<size_t, kditer>> ks = kd.findKNearest(p, 2);
     for(auto d : ks) {
-        cout << "distance: " << d.first << " ";
-        cout << "value: " << d.second->second << endl;
+        assert((d.first == ans[cnt][0]));
+        assert((d.second->second == ans[cnt++][1]));
+//        cout << "distance: " << d.first << " ";
+//        cout << "value: " << d.second->second << endl;
     }
     cout << "test 1 end" << endl;
 }
@@ -133,33 +135,49 @@ void test3() {
     vector<int> p{2,3};
     pair<bool, kditer> res = kd.find(p);
     if(res.first) {
+        assert((res.second->second == 2));
         cout << "value: " << res.second->second << endl;
     }
 
     vector<pair<size_t, kditer>> ks2 = kd.findKNearest(vec1, 2);
+    int ans[2][2] = {{5, 3}, {5, 2}};
+    int cnt = 0;
     for(auto d : ks2) {
-        cout << "distance: " << d.first << " ";
-        cout << "value: " << d.second->second << endl;
+        assert((d.first == ans[cnt][0]));
+        assert((d.second->second == ans[cnt++][1]));
+//        cout << "distance: " << d.first << " ";
+//        cout << "value: " << d.second->second << endl;
     }
+    cout << endl;
 
+    int ans2[2][2] = {{5, 5}, {5, 1}};
+    int cnt2 = 0;
     kd.erase(vec2);
     vector<pair<size_t, kditer>> ks = kd.findKNearest(p, 2);
     for(auto d : ks) {
-        cout << "distance: " << d.first << " ";
-        cout << "value: " << d.second->second << endl;
+        assert((d.first == ans2[cnt2][0]));
+        assert((d.second->second == ans2[cnt2++][1]));
+//        cout << "distance: " << d.first << " ";
+//        cout << "value: " << d.second->second << endl;
     }
+    cout << endl;
 
+
+    int ans3[2][2] = {{5, 5}, {5, 1}};
+    int cnt3 = 0;
     ks2 = kd.findKNearest(vec1, 2);
     for(auto d : ks2) {
-        cout << "distance: " << d.first << " ";
-        cout << "value: " << d.second->second << endl;
+        assert((d.first == ans2[cnt3][0]));
+        assert((d.second->second == ans2[cnt3++][1]));
+//        cout << "distance: " << d.first << " ";
+//        cout << "value: " << d.second->second << endl;
     }
 
     cout << "test 3 end" << endl;
 }
 
 int main() {
-//    test1();
+    test1();
 //    test2();
     test3();
 }

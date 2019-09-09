@@ -31,7 +31,7 @@ limitations under the License.
  * dim=1          (30),20,12  (70),36,7         (30 is smaller than 40, 70 is greater than 40)
  *                    / \
  *                   /   \
- * dim=2       15,(20),7  15,(45),7
+ * dim=2       15,(19),7  15,(45),7             (19 is smaller than 20, 45 is greater than 20)
  *                           / \
  *                          /   \
  * dim=0            15,20,(6)    13,21,(10)
@@ -221,15 +221,12 @@ private:
             }
 
             dim = node->dim_;
-            if (point[dim] > pointOf(node)[dim]) {
+            if (point[dim] >= pointOf(node)[dim]) {
                 prev = node;
                 node = node->high_;
             } else if (point[dim] < pointOf(node)[dim]) {
                 prev = node;
                 node = node->low_;
-            } else {            // equal situation
-                prev = node;
-                node = node->high_;
             }
         }
 
