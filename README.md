@@ -3,8 +3,10 @@
 
 <hr>
 
-<img alt="GitHub" src="https://img.shields.io/github/license/blackredscarf/flak">
-<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
+<p>
+<a href="#"><img alt="GitHub" src="https://img.shields.io/github/license/blackredscarf/flak"></a>
+<a href="#"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
+</p>
 
 **Flak** is a general and efficient data structures and algorithm template library. Implementation in STL style and easy-to-use interface.
 
