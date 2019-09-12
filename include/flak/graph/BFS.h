@@ -48,7 +48,7 @@ void breadthFirstSearch(const GraphType& g,
         const size_t start, const std::function<void(BFSContext&)>& callback) {
 
     assert((start < g.vertexesSize()));
-
+    bool vis[g.vertexesSize()];
     queue<BFSEntry> qu;
 
     BFSContext ctx (start, 0);
@@ -65,9 +65,13 @@ void breadthFirstSearch(const GraphType& g,
         qu.pop();
         const size_t v = entry.vertex;
         const int depth = entry.depth + 1;
+        vis[v] = true;
 
         typename GraphType::adjIterator it = g.adjacenciesBegin(v);
         for(; it != g.adjacenciesEnd(v); ++it) {
+            if(vis[it->vertex()]) {
+                continue;
+            }
             BFSContext ctx (it->vertex(), depth);
             callback(ctx);
             if(ctx.interrupt) {

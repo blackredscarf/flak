@@ -50,7 +50,35 @@ void test1() {
     cout << "test 1 end" << endl;
 }
 
+void test2() {
+    Graph<false, BlankEdgeVal, string> g(20);
+
+    g.setVertexValue(1, "v1");
+    g.setVertexValue(2, "v2");
+    g.setVertexValue(3, "v3");
+    g.setVertexValue(4, "v4");
+    g.setVertexValue(5, "v5");
+    g.setVertexValue(6, "v6");
+
+    g.addEdge(1, 2);
+    g.addEdge(1, 5);
+    g.addEdge(1, 3);
+    g.addEdge(2, 4);
+    g.addEdge(2, 3);
+    g.addEdge(3, 5);
+    g.addEdge(3, 4);
+    g.addEdge(4, 5);
+    g.addEdge(4, 6);
+    g.addEdge(5, 6);
+
+    breadthFirstSearch(g, 1, [&g](BFSContext& ctx) {
+        cout << ctx.vertex << " " << g.vertexValue(ctx.vertex) << " " << ctx.depth << endl;
+    });
+    cout << "test 2 end" << endl;
+}
+
 int main() {
     test1();
+    test2();
 }
 
