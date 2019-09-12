@@ -16,6 +16,8 @@ limitations under the License.
 
 */
 
+// You can learn it at https://en.wikipedia.org/wiki/Quickselect
+
 #ifndef FLAK_RANDOMIZEDSELECT_H
 #define FLAK_RANDOMIZEDSELECT_H
 
