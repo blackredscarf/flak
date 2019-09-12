@@ -60,6 +60,10 @@ void partialSort(RandomAccessIterator first, RandomAccessIterator middle, Random
     _partialSort(first, middle, last, comp);
 }
 
+template<class RandomAccessIterator>
+void partialSort(RandomAccessIterator first, RandomAccessIterator middle, RandomAccessIterator last) {
+    partialSort(first, middle, last, std::less<>());
+}
 
 const int _threshold = 16;
 
