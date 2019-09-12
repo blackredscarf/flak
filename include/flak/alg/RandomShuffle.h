@@ -24,7 +24,7 @@ using std::iter_swap;
 namespace flak {
 
 
-// Fisher–Yates shuffle Random shuffle
+// Fisher–Yates Random shuffle
 // Refer The Art of Computer Programming 3.4.2 Algorithm P.
 // The different is that we make the swap left to right,
 // the book's is right to left.
