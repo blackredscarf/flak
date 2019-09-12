@@ -47,19 +47,19 @@ void testRandomPartition2() {
 void testRandomizedSelect() {
     vector<int> vec {8,12,15,10,14,23,4,16,23,6};
     auto p = randomizedSelect(vec.begin(), vec.end(), 5);
-    assert((*(p.second) == 12));
+    assert((*(p) == 12));
     p = randomizedSelect(vec.begin(), vec.end(), 2);
-    assert((*(p.second) == 6));
+    assert((*(p) == 6));
     p = randomizedSelect(vec.begin(), vec.end(), 3);
-    assert((*(p.second) == 8));
+    assert((*(p) == 8));
     p = randomizedSelect(vec.begin(), vec.end(), 8);
-    assert((*(p.second) == 16));
+    assert((*(p) == 16));
     p = randomizedSelect(vec.begin(), vec.end(), 10);
-    assert((*(p.second) == 23));
+    assert((*(p) == 23));
     p = randomizedSelect(vec.begin(), vec.end(), 9);
-    assert((*(p.second) == 23));
+    assert((*(p) == 23));
     p = randomizedSelect(vec.begin(), vec.end(), 1);
-    assert((*(p.second) == 4));
+    assert((*(p) == 4));
 
 //    copy(vec.begin(), vec.end(), ostream_iterator<int>(cout, " "));
 //    cout << endl;

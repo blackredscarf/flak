@@ -56,11 +56,11 @@ RandomIterator randomPartition(RandomIterator first,
 }
 
 template <class RandomIterator, class Compare>
-std::pair<bool, RandomIterator> randomizedSelect(RandomIterator first,
+RandomIterator randomizedSelect(RandomIterator first,
                                       RandomIterator last,
                                       size_t k, Compare comp) {
     if(first == last) {
-        return make_pair(true, first);
+        return first;
     }
 
     assert((k > 0));
@@ -71,7 +71,7 @@ std::pair<bool, RandomIterator> randomizedSelect(RandomIterator first,
     size_t frontNum = it - first + 1;
 
     if(frontNum == k) {
-        return make_pair(true, it);
+        return it;
     } else if(frontNum > k) {
         return randomizedSelect(first, it + 1, k, comp);
     } else {
@@ -81,7 +81,7 @@ std::pair<bool, RandomIterator> randomizedSelect(RandomIterator first,
 }
 
 template <class RandomIterator>
-std::pair<bool, RandomIterator> randomizedSelect(RandomIterator first,
+RandomIterator randomizedSelect(RandomIterator first,
                                                  RandomIterator last,
                                        size_t k) {
     typedef typename iterator_traits<RandomIterator>::value_type Val;
