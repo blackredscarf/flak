@@ -87,12 +87,22 @@ void test2() {
 void test3() {
     Graph<true, string, int> g(20);
     assert((g.vertexesSize() == 20));
-    cout << "test 1 end" << endl;
+    cout << "test 3 end" << endl;
+}
+
+void test4() {
+    Graph<false> g(20);
+    g.addEdge(3, 6);
+    g.addEdge(6, 8);
+    g.addEdge(4, 5);
+    assert((g.edgesSize() == 3));
+    cout << "test 4 end" << endl;
 }
 
 int main() {
 //    test1();
 //    test2();
     test3();
+    test4();
 }
 
