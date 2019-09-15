@@ -16,3 +16,28 @@ limitations under the License.
 
 */
 
+
+#include <flak/alg/RandomShuffle.h>
+#include <flak/alg/RandomizedSelect.h>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void randomShuffle() {
+    int a[5] = {4, 5, 6, 7, 8};
+    flak::randomShuffle(a, a + 5);
+    std::copy(a, a + 5, std::ostream_iterator<int>(std::cout, " "));
+    cout << endl;
+}
+
+void randomizedSelect() {
+    vector<int> vec{8, 12, 15, 10, 14, 23, 4, 16, 23, 6};
+    vector<int>::iterator p = flak::randomizedSelect(vec.begin(), vec.end(), 5);
+    cout << *p << endl; // 12
+}
+
+int main() {
+    randomShuffle();
+    randomizedSelect();
+}
+

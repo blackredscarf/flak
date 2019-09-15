@@ -1,18 +1,49 @@
-/*
+#include <flak/Heap.h>
+#include <iostream>
+#include <vector>
+using namespace std;
 
-Copyright 2019 flak authors.
+int main() {
+    vector<int> vec{0,1,2,3,4,8,9,3,5};
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+    flak::makeHeap(vec.begin(), vec.end());
+    for(int i = 0; i < vec.size(); i++) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
+    // 9,5,8,3,4,0,2,3,1
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    // push heap
+    vec.push_back(7);
+    flak::pushHeap(vec.begin(), vec.end());
+    for(int i = 0; i < vec.size(); i++) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
+    // 9,7,8,3,5,0,2,3,1,4
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+    // pop the top elements
+    flak::popHeap(vec.begin(), vec.end());
+    vec.pop_back();
+    for(int i = 0; i < vec.size(); i++) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
+    // 8,7,4,3,5,0,2,3,1
 
-*/
+    // ascending sort
+    flak::sortHeap(vec.begin(), vec.end());
+    for(int i = 0; i < vec.size(); i++) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
+    // 0,1,2,3,3,4,5,7,8
 
+    // descending sort
+    flak::sortHeap(vec.begin(), vec.end(), greater<int>());
+    for(int i = 0; i < vec.size(); i++) {
+        cout << vec[i] << " ";
+    }
+    cout << endl;
+    // 8,7,5,4,3,3,2,1,0
+}

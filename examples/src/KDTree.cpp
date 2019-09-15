@@ -37,8 +37,18 @@ int main() {
     kd.insert(vec4, 4);
     kd.insert(vec5, 5);
 
-    // find the k nearest points
     typedef flak::KDTree<vector<int>, int>::iterator kditer;
+
+    // find a point
+    pair<bool, kditer> i1 = kd.find(vec1);
+    if(i1.first) { // the point is in the tree
+        kditer it1 = i1.second; // the value of kd tree iterator is a pair
+        vector<int> point = it1->first;
+        int value = it1->second;
+        cout << value << endl; // 1
+    }
+
+    // find the k nearest points
     vector<pair<size_t, kditer>> ks = kd.findKNearest(vec2, 2);
     for(auto d : ks) {
         cout << "distance: " << d.first << " ";

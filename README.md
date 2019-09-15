@@ -11,22 +11,23 @@
 **Flak** is a general and efficient data structures and algorithm template library. Implementation in STL style and easy-to-use interface.
 
 ## Container
-A container is a holder object that stores a collection of other objects (its elements). They are implemented as class templates, which allows a great flexibility in the types supported as elements.
+A container is a holder object that stores a collection of other objects (its elements). They are implemented as class templates, which allows great flexibility in the types supported as elements.
 
 |             |         |           |         |               |            |
 |-------------|---------|-----------|---------|---------------|------------|
-| **Associative** | AVLTree [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/AVLTree.h) | AVLMap [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/AVLMap.h)    | AVLSet [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/AVLSet.h)  | RBTree [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/RBTree.h)  | RBMap [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/Map.h)  |
+| **Associative** | AVLTree [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/AVLTree.h) | AVLMap [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/AVLMap.h) [(e)](https://github.com/blackredscarf/flak/blob/master/examples/src/Map.cpp)   | AVLSet [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/AVLSet.h)  | RBTree [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/RBTree.h)  | RBMap [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/Map.h)  |
 |             | RBSet [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/Set.h)  | HashTable [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/HashTable.h) | HashMap [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/HashMap.h) | HashSet [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/HashSet.h) | SearchTree [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/SearchTree.h) |
-|             | KDTree [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/KDTree.h)   | Trie [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/Trie.h) |  |        |  |
+|             | KDTree [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/KDTree.h) [(e)](https://github.com/blackredscarf/flak/blob/master/examples/src/KDTree.cpp)  | Trie [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/Trie.h) [(e)](https://github.com/blackredscarf/flak/blob/master/examples/src/Trie.cpp) |  |        |  |
 |  **Sequential** | Vector [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/Vector.h) | List [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/List.h) | SList [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/SList.h) | PriorityQueue [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/PriorityQueue.h) |            |
 
+(s) links to source, (e) links to example.
 
 ## Algorithm
 A collection of functions especially designed to be used on ranges of elements. A range is any sequence of objects that can be accessed through iterators or pointers, such as an array or an instance of some of the containers.
 
 |        |               |               |           |           |   |
 |--------|---------------|---------------|-----------|-----------|---|
-| **Sort**   | MergeSort [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/MergeSort.h) | InsertionSort [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/InsertionSort.h) | QuickSort [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/QuickSort.h) | IntroSort [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Sort.h) | partialSort [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Sort.h#L59)  |
+| **Sort**   | MergeSort [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/MergeSort.h) | InsertionSort [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/InsertionSort.h) | QuickSort [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/QuickSort.h) | IntroSort [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Sort.h) | PartialSort [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Sort.h#L59)  |
 | **Common** | RandomShuffle [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/RandomShuffle.h) | Reverse [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Reverse.h)  | BinarySearch [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Search.h)  | Merge [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Merge.h)  | Partition [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/Alg.h#L53) |
 |            | RandomizedSelect [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/alg/RandomizedSelect.h) | Heap [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/Heap.h)  |     |      |  |
 
@@ -36,7 +37,7 @@ A library contained the graph data structures and algorithms.
 |        |               |               |           |           |   |
 |--------|---------------|---------------|-----------|-----------|---|
 | **Graph** | AdjacencyList [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/graph/AdjacencyList.h) |       |     |      |    |
-| **Algorithm** |  Dijkstra [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/graph/Dijkstra.h) | BreadthFirstSearch [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/graph/BFS.h) | DepthFirstSearch [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/graph/DFS.h) |  DisjointSet [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/graph/DisjointSet.h) | |
+| **Algorithm** |  Dijkstra [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/graph/Dijkstra.h) | BreadthFirstSearch [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/graph/BFS.h) [(e)](https://github.com/blackredscarf/flak/blob/master/examples/src/BFS.cpp) | DepthFirstSearch [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/graph/DFS.h) [(e)](https://github.com/blackredscarf/flak/blob/master/examples/src/DFS.cpp) |  DisjointSet [(s)](https://github.com/blackredscarf/flak/blob/master/include/flak/graph/DisjointSet.h) [(e)](https://github.com/blackredscarf/flak/blob/master/examples/src/DisjointSet.cpp) | |
 
 ## Install
 Git clone the repository.

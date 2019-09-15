@@ -17,11 +17,10 @@ limitations under the License.
 */
 
 #include <iostream>
-#include <unordered_set>
 #include <flak/graph/AdjacencyList.h>
 using namespace std;
 
-void insertEdge() {
+void simpleGraph() {
     // Building a directed graph when first templated parameter is true,
     // otherwise a undirected graph.
     flak::Graph<true> g;
@@ -35,7 +34,7 @@ void insertEdge() {
     g.addEdge(1, 3); // 2
     g.addEdge(3, 2); // 3
 
-    // the edge of vertex 1
+    // the edges of vertex 1
     auto it = g.adjacenciesBegin(1);
     for(; it != g.adjacenciesEnd(1); ++it) {
         cout << it->vertex() << " ";
@@ -44,7 +43,7 @@ void insertEdge() {
     cout << endl;
 }
 
-void edgeValue() {
+void withValue() {
     // The second parameter is the value type of edge.
     // The third parameter is the value type of vertex.
     flak::Graph<true, string, int> g;
@@ -70,13 +69,14 @@ void edgeValue() {
 void specifySize() {
     flak::Graph<true, string, int> g(20);
     cout << g.vertexesSize() << endl; // 20
-    cout << g.edgesSize() << endl; // 0
+    g.addEdge(10, 15, "edge");
+    cout << g.edgesSize() << endl; // 1
 }
 
 
 int main() {
-    insertEdge();
-    edgeValue();
+    simpleGraph();
+    withValue();
     specifySize();
 }
 

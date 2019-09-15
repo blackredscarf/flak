@@ -16,9 +16,17 @@ limitations under the License.
 
 */
 
-#include<flak/AVLMap.h>
+#include<flak/AVLMap.h>     // avl tree map
+#include <flak/HashMap.h>   // hash map
+#include <flak/Map.h>       // red black tree map
 #include <iostream>
 using namespace std;
+
+void interface() {
+    flak::AVLMap<string, int> avlmap;
+    flak::HashMap<string, int> hashmap;
+    flak::Map<string, int> rbmap;
+}
 
 int main() {
     // The interface is the same as the STL map
