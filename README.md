@@ -60,6 +60,9 @@ add_executable(YourLib YourPath/YourSource.cpp)
 target_link_libraries(YourLib flak::flak)
 ```
 
+## Document
+Go to [flak.la](flak.la) for getting started.
+
 ## Sample
 The AVLMap is implemented by AVLTree.
 ```cpp
