@@ -52,29 +52,17 @@ CountIf(I first, I last, Pred pred) {
 template <class BidirectionalIterator, class Predicate>
 BidirectionalIterator partition(BidirectionalIterator first,
         BidirectionalIterator last, Predicate pred) {
-    while (true) {
-        while (true) {
-            if(first == last) {
-                return first;
-            } else if(pred(*first)) {
-                ++first;
-            } else {
-                break;
-            }
+    --last;
+    while(first <= last) {
+        while(first <= last && pred(*first)) ++first;
+        while(first <= last && !pred(*last)) --last;
+        if(first < last) {
+            std::iter_swap(first++, last--);
+        } else {
+            break;
         }
-        --last;
-        while (true) {
-            if(first == last) {
-                return first;
-            } else if(!pred(*last)) {
-                --last;
-            } else {
-                break;
-            }
-        }
-        std::iter_swap(first, last);
-        ++first;
     }
+    return last;
 }
 
 template<typename InputIterator1, typename InputIterator2, typename Compare>

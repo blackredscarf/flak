@@ -39,29 +39,29 @@ struct _RandomPartitionFunc {
 
 template <class RandomIterator, class Compare>
 RandomIterator randomPartition(RandomIterator first,
-                                      RandomIterator last, Compare comp) {
+                               RandomIterator last, Compare comp) {
     typedef typename iterator_traits<RandomIterator>::value_type Val;
     int idx = rand() % (last - first);
     Val pivots = *(first + idx);
     std::iter_swap(first + idx, first);
     auto it = flak::partition(first + 1, last, _RandomPartitionFunc<Val, Compare>(pivots));
-    std::iter_swap(first, --it);
+    std::iter_swap(first, it);
     return it;
 }
 
-
 template <class RandomIterator>
 RandomIterator randomPartition(RandomIterator first,
-                                      RandomIterator last) {
+                                RandomIterator last) {
+
     typedef typename iterator_traits<RandomIterator>::value_type Val;
     return randomPartition(first, last, std::less<Val>());
 }
 
 template <class RandomIterator, class Compare>
-RandomIterator randomizedSelect(RandomIterator first,
-                                      RandomIterator last,
-                                      size_t k, Compare comp) {
-    if(first == last) {
+RandomIterator _randomizedSelect(RandomIterator first,
+                                RandomIterator last, size_t k, Compare comp) {
+
+    if(first >= last) {
         return first;
     }
 
@@ -70,24 +70,31 @@ RandomIterator randomizedSelect(RandomIterator first,
     assert((first < last));
 
     auto it = randomPartition(first, last, comp);
-    size_t frontNum = it - first + 1;
+    size_t frontNum = std::distance(first, it) + 1;
 
     if(frontNum == k) {
         return it;
     } else if(frontNum > k) {
-        return randomizedSelect(first, it + 1, k, comp);
+        return _randomizedSelect(first, it, k, comp);
     } else {
-        return randomizedSelect(it + 1, last, k - frontNum, comp);
+        return _randomizedSelect(it + 1, last, k - frontNum, comp);
     }
 
 }
 
+template <class RandomIterator, class Compare>
+RandomIterator randomizedSelect(RandomIterator first,
+                                RandomIterator last,
+                                size_t k, Compare comp) {
+    return _randomizedSelect(first, last, k, comp);
+}
+
 template <class RandomIterator>
 RandomIterator randomizedSelect(RandomIterator first,
-                                                 RandomIterator last,
-                                       size_t k) {
+                                RandomIterator last,
+                                size_t k) {
     typedef typename iterator_traits<RandomIterator>::value_type Val;
-    return randomizedSelect(first, last, k, std::less<Val>());
+    return _randomizedSelect(first, last, k, std::less_equal<Val>());
 }
 
 }
